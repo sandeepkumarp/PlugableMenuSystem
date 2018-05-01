@@ -24,11 +24,15 @@ class PUZZLEPLATFORMS_API UPuzzlePlatformGameInstance : public UGameInstance, pu
 	UFUNCTION(Exec)
 	void Join(const FString& Address);
 
-	UFUNCTION(BlueprintCallable, Exec)
+	UFUNCTION(BlueprintCallable)
 	void LoadMenu();
+
+	UFUNCTION(BlueprintCallable)
+	void LoadInGameMenu();
 
 private:
 	TSubclassOf<UUserWidget> MenuClass;
+	TSubclassOf<UUserWidget> InGameClass;
 
 };
 
