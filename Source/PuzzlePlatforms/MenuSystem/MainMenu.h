@@ -28,6 +28,9 @@ private:
 	UButton* Button_MM_Host;
 
 	UPROPERTY(meta = (BindWidget))
+	UButton* Button_MM_Quit;
+
+	UPROPERTY(meta = (BindWidget))
 	UButton* Button_JM_Cancel;
 
 	UPROPERTY(meta = (BindWidget))
@@ -56,5 +59,8 @@ private:
 
 	UFUNCTION()
 	void CloseJoinMenu();
+
+	UFUNCTION()
+	void QuitGamePressed();
 
 };
