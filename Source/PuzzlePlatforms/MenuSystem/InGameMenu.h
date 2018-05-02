@@ -6,6 +6,7 @@
 
 
 class UButton;
+
 /**
  *
  */
@@ -14,5 +15,21 @@ class PUZZLEPLATFORMS_API UInGameMenu : public UMenuWidget
 {
 	GENERATED_BODY()
 
-	
+
+protected:
+	virtual bool Initialize() override;
+
+private:
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* Button_GM_Cancel;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* Button_GM_MainMenu;
+
+	UFUNCTION()
+	void CancelPressedInGameMenu();
+
+	UFUNCTION()
+	void QuitPressedInGameMenu();
 };

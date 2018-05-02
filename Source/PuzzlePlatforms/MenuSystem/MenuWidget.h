@@ -21,6 +21,8 @@ public:
 
 	void OnLevelRemovedFromWorld(ULevel * InLevel, UWorld * InWorld) override;
 
+	void Teardown();
+
 protected:
 	IMenuInterface * MenuInterface;
 	

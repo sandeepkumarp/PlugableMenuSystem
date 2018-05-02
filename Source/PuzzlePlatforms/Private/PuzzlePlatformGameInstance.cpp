@@ -59,7 +59,7 @@ void UPuzzlePlatformGameInstance::Join(const FString & Address)
 void UPuzzlePlatformGameInstance::LoadMenu()
 {
 	if (!ensure(MenuClass != nullptr)) return;
-	UMainMenu* Menu = CreateWidget<UMainMenu>(this, MenuClass);
+	Menu = CreateWidget<UMainMenu>(this, MenuClass);
 
 	if (!ensure(Menu != nullptr)) return;
 	Menu->Setup();
@@ -69,9 +69,17 @@ void UPuzzlePlatformGameInstance::LoadMenu()
 void UPuzzlePlatformGameInstance::LoadInGameMenu()
 {
 	if (!ensure(InGameClass != nullptr)) return;
-	UMenuWidget* Menu = CreateWidget<UMenuWidget>(this, InGameClass);
+	Menu = CreateWidget<UMenuWidget>(this, InGameClass);
 
 	if (!ensure(Menu != nullptr)) return;
 	Menu->Setup();
 	Menu->SetMenuInterface(this);
+}
+
+void UPuzzlePlatformGameInstance::LoadMainMenu()
+{
+	APlayerController* PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	PlayerController->ClientTravel("/Game/MenuSystem/MainMenu", ETravelType::TRAVEL_Absolute);
 }

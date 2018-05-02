@@ -6,6 +6,7 @@
 #include "PuzzlePlatformGameInstance.generated.h"
 
 class UUserWidget;
+class UMenuWidget;
 /**
  *
  */
@@ -30,9 +31,13 @@ class PUZZLEPLATFORMS_API UPuzzlePlatformGameInstance : public UGameInstance, pu
 	UFUNCTION(BlueprintCallable)
 	void LoadInGameMenu();
 
+	virtual void LoadMainMenu() override;
+
+
 private:
 	TSubclassOf<UUserWidget> MenuClass;
 	TSubclassOf<UUserWidget> InGameClass;
+	UMenuWidget* Menu;
 
 };
 
